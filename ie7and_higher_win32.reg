@@ -1,0 +1,66 @@
+Windows Registry Editor Version 5.00
+
+;  In requirement with  Setting Up InternetExplorer for Selenuim
+;  https://code.google.com/p/selenium/wiki/InternetExplorerDriver
+
+;On IE 7 or higher on Windows Vista or Windows 7, you must set the Protected Mode settings for each zone to be the same value. The value can be on or off, as long as it is the same for every zone. To set the Protected Mode settings, choose "Internet Options..." from the Tools menu, and click on the Security tab. For each zone, there will be a check box at the bottom of the tab labeled "Enable Protected Mode".
+
+;1406 - Disable Popup blocker
+;1609 - Enable Dispaly Mixed Content(http over https)
+;2500 - Turn On Protected Mode
+;http://support.microsoft.com/kb/182569
+;Local Intranet Zone
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1]
+"1406"=dword:3
+"1609"=dword:0
+"2500"=dword:0
+
+;Trusted sites Zone
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2]
+"1406"=dword:3
+"1609"=dword:0
+"2500"=dword:0
+
+;Internet Zone
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3]
+"1406"=dword:3
+"1609"=dword:0
+"2500"=dword:0
+
+;Restricated Sites Zone
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4]
+"1406"=dword:3
+"1609"=dword:0
+"2500"=dword:0
+
+;Disable Check for Publisher's Certificate Revocation
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing]
+"State"=dword:23e00
+
+;Disable Check for Server Certificate Revocation
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+"CertificateRevocation"=dword:0
+
+;Disable Auto Form Fill and Remember Password
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Use FormSuggest"="no"
+"FormSuggest Passwords"="no"
+"FormSuggest PW Ask"="no"
+
+;Disable dailog box 'A script on this page is causing Internet Explorer to run slowly. Do you want to stop the script?'
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Styles]
+"MaxScriptStatements"=dword:FFFFFFFF
+
+;Disable script error alerts in IE Containers
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"DisableScriptDebuggerIE"="yes"
+"Disable Script Debugger"="no"
+"Error Dlg Displayed On Every Error"="no"
+
+;Disable Check for Default Browser as IE
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Check_Associations"="no"
+
+; Set default zoom to 100
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Zoom]
+"ZoomFactor"=dword:000186a0

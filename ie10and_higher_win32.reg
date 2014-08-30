@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+;  In requirement with  Setting Up InternetExplorer for Selenuim
+;  https://code.google.com/p/selenium/wiki/InternetExplorerDriver
+
+;"Enhanced Protected Mode" must be disabled for IE 10 and higher. This option is found in the Advanced tab of the Internet Options dialog.
+
+[HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main]
+"Isolation"="PMIL"
